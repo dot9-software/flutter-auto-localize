@@ -1,70 +1,25 @@
 # flutter-auto-localize README
 
-This is the README for your extension "flutter-auto-localize". After writing up a brief description, we recommend including the following sections.
+This vscode plugin was created to assist in the process of localising the flutter app Ovrnite developed by dot9. It is highly experimental and not well tested, so make sure that all files in the project are backed up on the gh remote and use at your own risk. Feel free to improve the plugin on your own if you feel the need to, since it is currently unmaintained.
+
+Originally written by @fpwg in one afternoon to speed up his dev process.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+When in a `.dart` file, select the string (with quotes) that you want to move into the `.arb` file. Then invoke the command `flutter-auto-localize.addLocalization` for which you can also add a keybind.
 
-For example if there is an image subfolder under your extension project workspace:
+If there is more than one localisation file in the project, you will need to select which one you want to add the new localisation key. Then you will be prompted to provide a key, the text field should already be pre-filled with a suggestion based on the string you selected. 
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+After that the extension adds the localisation key along with the string to your `.arb` file, replaces the string with a reference to it and adds the relevant imports if needed.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Please only use in a flutter app with the standard project structure. Your localisation files should be located in `lib/**/intl_*.arb`.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+-
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+vscode might become a bit laggy when the localisation data is stored in a very large file, since it gets read, modified and written in its entirety.
